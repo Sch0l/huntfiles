@@ -52,7 +52,7 @@ fetch("/json/files.json")
         files.forEach((file) => {
             const fileEl = document.createElement('div');
             fileEl.className = "file";
-            fileEl.innerHTML = `<img src="${"https://gitloaf.com/gitcfcdn/HuntGamesOfficial/assets/main/" + file.root + "/" + file.logo}" /><span class="fileName">${file.name}</span>`;
+            fileEl.innerHTML = `<img src="${"https://raw.githack.com/HuntGamesOfficial/assets/main/" + file.root + "/" + file.logo}" /><span class="fileName">${file.name}</span>`;
 
             fileContainer.appendChild(fileEl);
 
@@ -68,14 +68,14 @@ fetch("/json/files.json")
 
                 fileBarname.innerText = `${file.name}`;
 
-                fileIMG.src = `${"https://gitloaf.com/gitcfcdn/HuntGamesOfficial/assets/main/" + file.root + "/" + file.logo}`;
+                fileIMG.src = `${"https://raw.githack.com/HuntGamesOfficial/assets/main/" + file.root + "/" + file.logo}`;
                 fileTitle.innerText = `${file.name}`;
 
                 playButton.onclick = (e) => {
                     document.querySelector('.playFILE').classList.add('hidden');
                     fileDisplay.querySelector(
                         "iframe"
-                    ).src = `${"https://gitloaf.com/gitcfcdn/HuntGamesOfficial/assets/main/" + file.root + "/" + file.file}`
+                    ).src = `${"https://raw.githack.com/HuntGamesOfficial/assets/main/" + file.root + "/" + file.file}`
                     document.querySelector('.fileBar').classList.remove('hidden');
                 }
 
