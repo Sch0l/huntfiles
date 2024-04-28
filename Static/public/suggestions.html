@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggestion Page</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/suggestions.css">
+    <script src="https://kit.fontawesome.com/131b508e98.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <center>
+        <div class="navbar">
+            <div class="end">
+                <a href="/"><i class="fa-solid fa-house fa-xs" style="color: #ffffff;"></i>Home</a>
+                <a href="/-"><i class="fa-solid fa-file-lines fa-xs" style="color: #ffffff;"></i>Files</a>
+                <a href="/a"><i class="fa-brands fa-medapps fa-xs" style="color: #ffffff;"></i>Apps</a>
+                <a href="/~"><i class="fa-solid fa-magnifying-glass fa-xs prLO" style="color: #ffffff;"></i>Proxy</a>
+                <a href="/suggestion"><i class="fa-solid fa-plus fa-xs" style="color: #ffffff;"></i>Suggestions</a>
+                <a class="settingsbtn" href="/settings"><i class="fa-solid fa-gear fa-xs"
+                        style="color: #ffffff;"></i>Settings</a>
+            </div>
+        </div>
+    </center>
+    <center>
+        <div id="suggestion-form">
+            <p>Submit a suggestion</p>
+            <textarea id="suggestion-text" rows="4" cols="50" maxlength="200"></textarea><br>
+            <span id="char-count">0/200</span><br>
+            <button onclick="submitSuggestion()">Submit</button>
+        </div>
+    </center>
+    <div id="suggestion-list">
+        <center>
+            <p>Suggestions</p>
+        </center>
+        <ul id="suggestions"></ul>
+    </div>
+
+
+    <script>
+        function submitSuggestion() {
+            var suggestionText = document.getElementById('suggestion-text').value;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/submit', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    updateSuggestions();
+                    document.getElementById('suggestion-text').value = '';
+                    updateCharCount();
+                } else {
+                    console.error(xhr.responseText);
+                }
+            };
+            xhr.send(JSON.stringify({ suggestion: suggestionText }));
+        }
+
+        function updateCharCount() {
+            var suggestionText = document.getElementById('suggestion-text').value;
+            var charCount = suggestionText.length;
+            document.getElementById('char-count').textContent = charCount + '/200';
+        }
+
+        document.getElementById('suggestion-text').addEventListener('input', function () {
+            updateCharCount();
+        });
+
+        function acceptSuggestion(id) {
+            sendAction(id, 'accepted');
+        }
+
+        function denySuggestion(id) {
+            sendAction(id, 'denied');
+        }
+
+        function sendAction(id, action) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/action', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    updateSuggestions();
+                } else {
+                    console.error(xhr.responseText);
+                }
+            };
+            xhr.send(JSON.stringify({ id: id, action: action }));
+        }
+
+        function formatTimestamp(timestamp) {
+            var date = new Date(timestamp);
+            return date.toLocaleString();
+        }
+
+        function updateSuggestions() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/suggestions', true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var suggestions = JSON.parse(xhr.responseText);
+                    var suggestionsList = document.getElementById('suggestions');
+                    suggestionsList.innerHTML = '';
+                    suggestions.forEach(function (suggestion) {
+                        var li = document.createElement('li');
+                        li.textContent = suggestion.suggestion_text + ' (Submitted at: ' + formatTimestamp(suggestion.submitted_at) + ', Status: ' + suggestion.status + ')';
+
+
+
+                        suggestionsList.appendChild(li);
+                    });
+                } else {
+                    console.error(xhr.responseText);
+                }
+            };
+            xhr.send();
+        }
+
+        // Load suggestions initially
+        updateSuggestions();
+    </script>
+</body>
+
+</html>

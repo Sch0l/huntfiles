@@ -1,0 +1,52 @@
+[
+    {
+        "name": "1",
+        "link": "1/",
+        "img": "1.png"
+    },
+    {
+        "name": "1v1.lol",
+        "link": "1v1lol/",
+        "img": "1v1lol.jfif"
+    },
+    {
+        "name": "100 Player Pong",
+        "link": "100-Player-Pong/",
+        "img": "100-Player-Pong.jfif"
+    },
+    {
+        "name": "2048",
+        "link": "2048/",
+        "img": "2048.png"
+    },
+    {
+        "name": "2048 Multitask",
+        "link": "2048-Multitask/",
+        "img": "2048-Multitask.jfif"
+    },
+    {
+        "name": "9007199254740992",
+        "link": "9007199254740992/",
+        "img": "9007199254740992.png"
+    },
+    {
+        "name": "Doge Miner",
+        "link": "DogeMiner/",
+        "img": ""
+    },
+    {
+        "name": "HexGL",
+        "link": "HexGL/",
+        "img": ""
+    },
+    {
+        "name": "Offline Paradise",
+        "link": "OfflineParadise/",
+        "img": ""
+    },
+    {
+        "name": "Stickman Survival",
+        "link": "Stickman-Survival",
+        "img": ""
+    }
+]

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Files</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/files.css">
+    <script src="https://kit.fontawesome.com/131b508e98.js" crossorigin="anonymous"></script>
+    <link id="favicon" rel="icon" type="image/x-icon" href="./logo.ico">
+    <script defer src="https://analytics.us.umami.is/script.js"
+        data-website-id="557c13c4-47ed-4ec2-9fd3-13ec20a00d20"></script>
+    <script>
+        setTimeout(function () {
+            // Define the classes you want to count
+            const classesToCount = ['file'];
+
+            // Function to count elements with specified classes
+            function countDivsByClass(classes) {
+                const counts = {};
+                classes.forEach(className => {
+                    const elements = document.getElementsByClassName(className);
+                    counts[className] = elements.length;
+                });
+                return counts;
+            }
+
+            // Count divs
+            const counts = countDivsByClass(classesToCount);
+
+            // Concatenate counts into a string
+            let placeholderText = '';
+            for (const className in counts) {
+                if (counts.hasOwnProperty(className)) {
+                    placeholderText += `Search from ${counts[className]} files`;
+                }
+            }
+
+            // Select the input element
+            const inputElement = document.querySelector('.searchbar');
+
+            // Change the placeholder text
+            inputElement.placeholder = placeholderText;
+        }, 1000);
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <div class="navbar">
+            <div class="end">
+                <a href="/"><i class="fa-solid fa-house fa-xs" style="color: #ffffff;"></i>Home</a>
+                <a href="/-"><i class="fa-solid fa-file-lines fa-xs" style="color: #ffffff;"></i>Files</a>
+                <a href="/a"><i class="fa-brands fa-medapps fa-xs" style="color: #ffffff;"></i>Apps</a>
+                <a href="/~"><i class="fa-solid fa-magnifying-glass fa-xs prLO" style="color: #ffffff;"></i>Proxy</a>
+                <a href="/suggestion"><i class="fa-solid fa-plus fa-xs" style="color: #ffffff;"></i>Suggestions</a>
+                <a class="settingsbtn" href="/settings"><i class="fa-solid fa-gear fa-xs"
+                        style="color: #ffffff;"></i>Settings</a>
+            </div>
+        </div>
+    </center>
+    <center><input class="searchbar" placeholder="Search Huntfiles"></center>
+    <div class="files"></div>
+    <script src="./js/settings.js"></script>
+    <script src="./js/fileloader.js"></script>
+</body>
+
+</html>

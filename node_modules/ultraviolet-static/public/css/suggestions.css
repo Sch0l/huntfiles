@@ -1,0 +1,42 @@
+p {
+    color: white;
+    font-size: 27px;
+}
+
+#suggestion-text {
+    background-color: rgba(255, 255, 255, 0.038);
+    color: white;
+    font-size: 20px;
+    width: 500px;
+    height: 200px;
+    border-width: 0px;
+    border-radius: 2vh;
+}
+
+#char-count {
+    color: white;
+    font-size: 20px;
+}
+
+button {
+    background-color: rgba(255, 255, 255, 0.038);
+    padding: 5px 15px 5px 15px;
+    color: white;
+    font-size: 27px;
+    margin-top: 15px;
+    border-radius: 2vh;
+    border-width: 0px;
+}
+
+li {
+    color: white;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.038);
+    border-radius: 2vh;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 600px;
+}

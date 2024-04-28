@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:wght@300&family=Ubuntu&display=swap');
+@import url('./navbar.css');
+@import url('./home.css');
+@import url('./fa.css');
+@import url('./settings.css');
+
+* {
+    font-family: 'Roboto', sans-serif;
+
+}
+
+html,
+body {
+    background: rgb(35, 35, 35);
+    height: 100%;
+    overflow-x: hidden;
+    user-select: none;
+}
+
+.blocked:hover {
+    text-decoration: line-through;
+    cursor: not-allowed;
+}
+
+.hidden {
+    display: none;
+}
+
+.settingsBAR {
+    background-color: rgb(51, 51, 51);
+    z-index: 99;
+    width: 300px;
+    height: 225px;
+    right: 25px;
+    position: fixed;
+    border-radius: 2vh;
+
+}
+
+.settingsTOP {
+    color: white;
+    margin-top: 25px;
+    font-size: 27px;
+}
+
+.settitle {
+width: 250px;
+height: 25px;
+border-radius: 2vh;
+background-color: transparent;
+color:white;
+overflow: scroll;
+border-color: white;
+text-align: center;
+margin-top: 10px;
+}
+
+.settitle::placeholder {
+    color: white;
+    text-align: center;
+}
+
+.seticon {
+    width: 250px;
+height: 25px;
+border-radius: 2vh;
+background-color: transparent;
+color:white;
+overflow: scroll;
+border-color: white;
+text-align: center;
+margin-top: 10px;
+}
+
+.seticon::placeholder {
+    color: white;
+    text-align: center;
+}
+
+.settingsBAR button {
+    margin-top: 10px;
+    padding: 5px 15px 5px 15px;
+    color: white;
+    background-color: transparent;
+    border-radius: 2vh;
+    border-color: white;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+
+  ::-webkit-scrollbar-track {
+    background: rgb(35, 35, 35);
+  }
+  
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(51, 51, 51);
+    border-radius: 2vh;
+  }
+  
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(51, 51, 51);
+    border: 2vh;
+  }
+
+.powered {
+    width: 150px;
+}
